@@ -14,7 +14,7 @@ class Ball(Component):
         self.ball_image = pyglet.image.load('assets\\ball.png')
         self.width = self.ball_image.width
         self.height = self.ball_image.height
-        self.ball_sprite = pyglet.sprite.Sprite(self.ball_image, self.x, self.y)
+        self.ball_sprite = pyglet.sprite.Sprite(self.ball_image, x=self.x, y=self.y)
         self.x_direction = 1
         self.y_direction = 1
 
@@ -28,8 +28,8 @@ class Ball(Component):
         """
         self.x += (self.speed * self.x_direction)
         self.y += (self.speed * self.y_direction)
-        self.ball_sprite.set_position(self.x, self.y)
-
+        self.ball_sprite = pyglet.sprite.Sprite(self.ball_image, x=self.x, y=self.y)
+        
         if self.x < 0 or (self.x + self.width) > config.window_width:
             self.x_direction *= -1
 
